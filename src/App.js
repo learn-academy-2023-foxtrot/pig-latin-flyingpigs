@@ -32,20 +32,47 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
-      const pigFirstVowel = vowelsArray[0]; 
-      console.log("first vowel", pigFirstVowel)
-      const firstVowelLocation =  eachWord.indexOf(pigFirstVowel);
-      console.log("vowel location in each word", firstVowelLocation);
-      
-      if (firstVowelLocation === 0 ) {
-          return eachWord + "way";
-        }
-      /*
-      Pseudo Code:
+          /*
+      Pseudo Code: for the vowel functionality 
       input: userInput's value 
       output: The value of userInput and check if first letter is a vowel
       process: Conditional that checks if the first zeroth index of the word is a vowel. If true, we add "way" to the end.
       */
+      const pigFirstVowel = vowelsArray[0]; 
+      console.log("first vowel", pigFirstVowel)
+      const firstVowelLocation =  eachWord.indexOf(pigFirstVowel);
+      console.log("vowel location in each word", firstVowelLocation);
+      const checkQ = eachWord[firstVowelLocation - 1]
+      
+      if (firstVowelLocation === 0 ) {
+          return eachWord + "way"; // for when words start with a vowel
+        } else if (eachWord.substring(0, 2) === "qu") {
+          const restOfWord = eachWord.slice(2)
+          console.log(restOfWord)
+          return restOfWord + "quay" // for when words start with "qu"
+        }
+        // else if (checkQ === "q") {
+        //    const restOfWord2 = eachWord.slice(0, firstVowelLocation + 1)
+        //    return `${restOfWord2} ay`       -> Work in progress for how to move qu with consonants 
+        // }
+        // const arr = []
+        // const str = "squeal".slice(0, 3)
+        // arr.push(str)
+        // console.log(arr)
+
+        // e, a, l + squ + ay
+
+        //squeal : squ - eal since im splitting the word after u i need to know where the index of u is. 
+        // final word needs to be: ealsquay
+        
+      
+      // pseudo code: for the qu-functionality
+      // input: user's input - a word that starts with qu
+      // output: a word that has the first syllable with "qu" at the end plus "ay"
+      // process: look through each word and find the "qu", move the "qu" to end and then add "ay" to the end, we need to use or reference the arrayOfUserInput
+      // 
+
+      
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord;
     })
@@ -99,7 +126,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2023 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2023 | Coded by: Adrian & Aleja</footer>
     </div>
   )
 }
