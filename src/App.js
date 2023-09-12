@@ -32,9 +32,22 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
-
+      const pigFirstVowel = vowelsArray[0]; 
+      console.log("first vowel", pigFirstVowel)
+      const firstVowelLocation =  eachWord.indexOf(pigFirstVowel);
+      console.log("vowel location in each word", firstVowelLocation);
+      
+      if (firstVowelLocation === 0 ) {
+          return eachWord + "way";
+        }
+      /*
+      Pseudo Code:
+      input: userInput's value 
+      output: The value of userInput and check if first letter is a vowel
+      process: Conditional that checks if the first zeroth index of the word is a vowel. If true, we add "way" to the end.
+      */
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
-      return eachWord
+      return eachWord;
     })
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
@@ -71,7 +84,7 @@ const App = () => {
           alt="pig with butcher cut names in pig latin"
           className="butcher-pig-image"
         />
-
+  
         <div className="input-section">
           <h4>Enter phrase to be translated:</h4>
           <input
